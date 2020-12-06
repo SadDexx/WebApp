@@ -1,0 +1,27 @@
+﻿@using WebApp.Model
+@model IEnumerable<WebApp.Model.mGoods>
+
+<title>Список товаров</title>
+<h1>
+    Страница списка товаров
+</h1>
+
+<div>
+    <a asp-controller="Home" asp-action="GoodsEdit">Создать новый товар</a>
+</div>
+
+    @foreach (mGoods good in Model)
+    {
+    <div>
+        Наименование: @good.gName
+        Количество штук: @good.gCount
+        <a asp-controller="Home" asp-action="GoodsEdit" asp-route-id="@good.GID"> (редактировать)</a>
+    </div>
+        <form method="post" asp-controller="Home" asp-action="GoodsDelete">
+            <input type="hidden" name="Id" value="@good.GID" />
+            <input type="submit" value="удалить" />
+        </form>
+    }
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=WIN-DMOS6VAUS60\\SQLEXPRESS;Database=TestCaseBD;Persist Security Info=false;Trusted_Connection=false;MultipleActiveResultSets=true;User id='TestWeb'; password = '11';"
+  }
+}

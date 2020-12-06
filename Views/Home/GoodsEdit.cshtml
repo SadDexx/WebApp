@@ -1,0 +1,28 @@
+﻿@model WebApp.Model.mGoods
+
+<div>
+    <h1>Редактировать товар</h1>
+    <div>
+        <form asp-controller="Home" asp-action="GoodsEdit" method="post">
+            <input type="hidden" asp-for="GID" />
+
+            <div>
+                Наименование
+            </div>
+                <div>
+                    <input asp-for="gName" />
+                    <span asp-validation-for="gName"></span>
+                </div>
+                <div>
+                    <div>
+                        Количество
+                    </div>
+                    <input asp-for="gCount" />
+                    <span asp-validation-for="gCount"></span>
+                </div>
+                <input type="submit" value="Сохранить" />
+        </form>
+    </div>
+</div>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

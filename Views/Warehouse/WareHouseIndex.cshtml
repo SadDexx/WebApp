@@ -1,0 +1,27 @@
+﻿@using WebApp.Model
+@model IEnumerable<WebApp.Model.mWarehouse>
+
+<title>Список складов</title>
+<h1>
+    Страница списка складов
+</h1>
+
+<div>
+    <a asp-controller="Warehouse" asp-action="WhouseEdit">Добавить новый склад</a>
+</div>
+
+@foreach (mWarehouse wHouse in Model)
+{
+    <div>
+        Название склада: @wHouse.wName
+        Мсетоположение: @wHouse.wPos
+        <a asp-controller="Warehouse" asp-action="WhouseEdit" asp-route-id="@wHouse.wID"> (редактировать)</a>
+    </div>
+    <form method="post" asp-controller="Warehouse" asp-action="WhouseDelete">
+        <input type="hidden" name="Id" value="@wHouse.wID" />
+        <input type="submit" value="удалить" />
+    </form>
+}
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
